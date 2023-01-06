@@ -27,4 +27,4 @@ yarn-error.log*
 
 #private
 /server/.env
-React坑.txt
+/React坑.txt
