@@ -1,4 +1,7 @@
 react jsx中，class => classname， <label>中的for => htmlFor，Array.map(()=>{})中，
 {}会被JSX识别为html部分，可将{}更改成()，或者在{}中加入return(<div>……</div>)
 
+req.params {:_id: , :_ip: ,}
+req.body {a: , b: , }
+
 JWT声明中，JWT后要加空格分隔符，如"JWT "+toekn

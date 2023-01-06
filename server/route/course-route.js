@@ -93,6 +93,7 @@ router.post("/", async (req, res) => {
 router.post("/enroll/:_id", async (req, res) => {
   let { _id } = req.params;
   let { user_id } = req.body;
+  console.log(req);
   try {
     let course = await Course.findOne({ _id });
     course.students.push(user_id);
