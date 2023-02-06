@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The client folder includes all react components, while the server folder are consisted of RESTful APIs, MongoDB database query scripts, and authorization parts. Please Install Node.js and React in ahead of usage.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The client folder includes all react components, while the server folder consists of RESTful APIs, MongoDB database query scripts, and authorization parts. Please Install Node.js and React in ahead of usage.
 
 Node.js: https://nodejs.org/en/download/
 
