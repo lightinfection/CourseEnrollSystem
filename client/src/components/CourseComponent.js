@@ -19,7 +19,6 @@ const CourseComponent = (props) => {
     if (currentUser.user.role === "instructor") {
       CourseServeice.get(_id)
         .then((course) => {
-          console.log(course);
           setCoursedata(course.data);
         })
         .catch((err) => {
@@ -34,7 +33,7 @@ const CourseComponent = (props) => {
           console.log(err);
         });
     }
-  }, []);
+  }, [currentUser, coursedata]);
   return (
     <div style={{ padding: "3rem" }}>
       {!currentUser && (
@@ -57,46 +56,94 @@ const CourseComponent = (props) => {
       )}
       {currentUser && coursedata && coursedata.length != 0 && (
         <div>
-          <div
-            className="alert alert-light"
-            role="alert"
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignIterms: "center",
-            }}
-          >
+          <div className="alert alert-light" role="alert">
             <h3>Here are all of your courses available in the system.</h3>
           </div>
-          {coursedata.map((course) => {
-            return (
-              <div
-                style={{
-                  padding: "1rem",
-                  display: "flex",
-                  flexDirection: "row",
-                  flexWrap: "wrap",
-                }}
-              >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "left",
+              alignIterms: "left",
+            }}
+          >
+            {coursedata.map((course) => {
+              return (
                 <div
-                  className="card"
-                  style={{ width: "18rem" }}
-                  key={course._id}
+                  style={{
+                    padding: "1rem",
+                    display: "flex",
+                    flexDirection: "row",
+                    flexWrap: "wrap",
+                  }}
                 >
-                  <div className="card-body">
-                    <h5 className="card-title">{course.title}</h5>
-                    <p className="card-text">{course.description}</p>
-                    <p>Student Count: {course.students.length}</p>
-                    <p>Price:{course.price}</p>
-                    <a href="#" className="card-text btn btn-primary">
-                      See Course
-                    </a>
-                    <br />
+                  <div
+                    className="card"
+                    style={{ width: "18rem" }}
+                    key={course._id}
+                  >
+                    <div className="card-body">
+                      <h5 className="card-title">{course.title}</h5>
+                      <p className="card-text">
+                        Student Count: {course.students.length}
+                      </p>
+                      <p className="card-text">Price:{course.price}</p>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "left",
+                          alignIterms: "left",
+                        }}
+                      >
+                        <a
+                          className="card-text btn btn-primary"
+                          style={{ margin: "0 8px 0 -5px" }}
+                          onClick={() => {
+                            let myWindow = window.open(
+                              "",
+                              "Course Description",
+                              "width=600px,height=200px,statusbar=0"
+                            );
+                            myWindow.document.write(
+                              "<title>Course Description</title>" +
+                                "<h1>Course Description</h1>" +
+                                "<p>" +
+                                course.description +
+                                "</p>"
+                            );
+                            myWindow.focus();
+                          }}
+                        >
+                          See Course
+                        </a>
+                        {currentUser &&
+                          currentUser.user.role === "instructor" && (
+                            <a
+                              className="card-text btn btn-primary"
+                              onClick={() => {
+                                CourseServeice.closeCoursebyName(
+                                  course._id,
+                                  currentUser.user._id
+                                )
+                                  .then((new_course) => {
+                                    alert("The course has been closed");
+                                    setCoursedata(new_course.data);
+                                  })
+                                  .catch((err) => {
+                                    console.log(err);
+                                  });
+                              }}
+                            >
+                              Delete
+                            </a>
+                          )}
+                      </div>
+                      <br />
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       )}
     </div>

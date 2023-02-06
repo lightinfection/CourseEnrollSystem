@@ -20,9 +20,6 @@ const ProfileComponent = (props) => {
               <strong>{currentUser.user.username}</strong>
             </h3>
             <p>
-              <strong>{currentUser.user._id}</strong>
-            </p>
-            <p>
               <strong>{currentUser.user.email}</strong>
             </p>
             <p>

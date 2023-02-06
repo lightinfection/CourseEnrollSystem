@@ -62,6 +62,21 @@ const CourseService = {
     });
   },
 
+  closeCoursebyName(name, _id) {
+    let token;
+    if (localStorage.getItem("user")) {
+      token = JSON.parse(localStorage.getItem("user")).token;
+    } else {
+      token = "";
+    }
+    axios.delete(API_URL + "/" + name, {
+      headers: {
+        Authorization: token,
+      },
+    });
+    return this.get(_id);
+  },
+
   enroll(course_id, user_id) {
     let token;
     if (localStorage.getItem("user")) {
@@ -71,6 +86,24 @@ const CourseService = {
     }
     return axios.post(
       API_URL + "/enroll/" + course_id,
+      { user_id },
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+  },
+
+  drop(course_id, user_id) {
+    let token;
+    if (localStorage.getItem("user")) {
+      token = JSON.parse(localStorage.getItem("user")).token;
+    } else {
+      token = "";
+    }
+    axios.delete(
+      API_URL + course_id,
       { user_id },
       {
         headers: {

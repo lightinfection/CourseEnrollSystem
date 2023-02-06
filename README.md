@@ -1,70 +1,39 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The client folder includes all react components, while the server folder are consisted of RESTful APIs, MongoDB database query scripts, and authorization parts. Please Install Node.js and React in ahead of usage.
 
-## Available Scripts
+Node.js: https://nodejs.org/en/download/
 
-In the project directory, you can run:
+React: https://github.com/facebook/create-react-app
 
-### `npm start`
+# Environment setting
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The dependecies of client and server are listed in package.json files in respective folders. Install packages by node or yarn.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Please create .env in the server folder, then declare and initialize two variables, "DB_CLUSTER" and "MYSECRET", which are needed when connecting to the MongoDB database and validating JWT token signature.
 
-### `npm test`
+# Main functions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Feel free to explore this system and all the buttons.
 
-### `npm run build`
+1. Home page and Nav bars:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   <img src="./pic/home.png" width="50%" height="50%">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   Click "Login or Register Now" at home page or "Login" on nav bars as a student or an instructor to log into the system. If you don't have an account, go the the "Register" page to sign up first. You can choose to register an instuctor or a student account during registration.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Publish new courses as an instructor:
 
-### `npm run eject`
+   <img src="./pic/newpost.png" width="50%" height="50%">
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   After logging in by an instructor account, Navbars will present all the functions instructors may use. Go to the "Post Course" page, fill in the forms and submit, then the courses will be successfully published. At the "Course" page you can manage all your available courses.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   <img src="./pic/published.png" width="50%" height="50%">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Enroll new courses as a student:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   <img src="./pic/enroll.png" width="50%" height="50%">
 
-## Learn More
+   After logging in by a student account, Navbars will present all the functions students may use. Go to the "Enrollment" page, fill in the form and search, then all relevant courses will be listed in the result. At the "Course" page you can see all the courses you have enrolled.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   <img src="./pic/student%20courses.png" width="50%" height="50%">

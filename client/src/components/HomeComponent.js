@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const HomeComponent = () => {
+  const navigate = useNavigate();
   return (
     <main>
       <div className="container py-4">
@@ -9,11 +11,17 @@ const HomeComponent = () => {
             <h1 className="display-5 fw-bold">Learning System</h1>
             <p className="col-md-8 fs-4">
               This system is using React.js as front-end framework, and Node.js,
-              MongoDB as backend server. This kind of project is called MERN
-              project, which is one of the most popular way to create modern
-              websites.
+              MongoDB as backend server.
             </p>
-            <button className="btn btn-primary btn-lg" type="button">
+            <button
+              className="btn btn-primary btn-lg"
+              type="button"
+              onClick={() => {
+                window.open(
+                  "https://github.com/lightinfection/CourseEnrollSystem"
+                );
+              }}
+            >
               See how it works.
             </button>
           </div>
@@ -26,9 +34,15 @@ const HomeComponent = () => {
               <p>
                 Students can register in courses they like. This website is for
                 practice purpose only, so please do not provide any personal
-                information, such as credit card numbers.
+                information.
               </p>
-              <button className="btn btn-outline-light" type="button">
+              <button
+                className="btn btn-outline-light"
+                type="button"
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
                 Login or Register Now
               </button>
             </div>
@@ -39,10 +53,15 @@ const HomeComponent = () => {
               <p>
                 You can become an instructor by registering as one, and start
                 making online courses. This website is for practice purpose
-                only, so please do not provide any personal information, such as
-                credit card numbers.
+                only, so please do not provide any personal information.
               </p>
-              <button className="btn btn-outline-secondary" type="button">
+              <button
+                className="btn btn-outline-secondary"
+                type="button"
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
                 Login or Register Now
               </button>
             </div>

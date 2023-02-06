@@ -25,6 +25,7 @@ const EnrollComponent = (props) => {
       });
   };
   const handleenrollment = function (e) {
+    console.log(e.target);
     CourseService.enroll(e.target.id, currentUser.user._id)
       .then(() => {
         alert("Enrollment is successful");
@@ -72,38 +73,51 @@ const EnrollComponent = (props) => {
       )}
       {currentUser && searchResult && searchResult.length !== 0 && (
         <div>
-          <div
-            className="alert alert-light"
-            role="alert"
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignIterms: "center",
-            }}
-          >
+          <div className="alert alert-light" role="alert">
             <h3>Here is the searching result.</h3>
           </div>
-          {searchResult.map((course) => {
-            return (
-              <div className="card" style={{ width: "18rem" }} key={course._id}>
-                <div className="card-body">
-                  <h5 className="card-title">{course.title}</h5>
-                  <p className="card-text">{course.description}</p>
-                  <p>Student Count: {course.students.length}</p>
-                  <p>Price: {course.price}</p>
-                  <a
-                    href="#"
-                    className="card-text btn btn-primary"
-                    onClick={handleenrollment}
-                    id={course._id}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "left",
+              alignIterms: "left",
+            }}
+          >
+            {searchResult.map((course) => {
+              return (
+                <div
+                  style={{
+                    padding: "1rem",
+                    display: "flex",
+                    flexDirection: "row",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <div
+                    className="card"
+                    style={{ width: "18rem" }}
+                    key={course._id}
                   >
-                    Enroll
-                  </a>
-                  <br />
+                    <div className="card-body">
+                      <h5 className="card-title">{course.title}</h5>
+                      <p className="card-text">{course.description}</p>
+                      <p>Student Count: {course.students.length}</p>
+                      <p>Price: {course.price}</p>
+                      <a
+                        href="#"
+                        className="card-text btn btn-primary"
+                        onClick={handleenrollment}
+                        id={course._id}
+                      >
+                        Enroll
+                      </a>
+                      <br />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       )}
       {currentUser && searchResult && searchResult.length === 0 && (

@@ -127,10 +127,10 @@ router.patch("/:_id", async (req, res) => {
       .then(() => {
         res.send("Course updated.");
       })
-      .catch((e) => {
+      .catch((err) => {
         res.send({
           success: false,
-          message: e,
+          message: err,
         });
       });
   } else {
@@ -159,10 +159,10 @@ router.delete("/:_id", async (req, res) => {
       .then(() => {
         res.send("Course deleted.");
       })
-      .catch((e) => {
+      .catch((err) => {
         res.send({
           success: false,
-          message: e,
+          message: err,
         });
       });
   } else {
