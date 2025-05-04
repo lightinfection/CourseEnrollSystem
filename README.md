@@ -1,18 +1,11 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The client folder includes all react components, while the server folder consists of RESTful APIs, MongoDB database query scripts, and authorization parts. Please Install Node.js and React in ahead of usage.
-
-Node.js: https://nodejs.org/en/download/
-
-React: https://github.com/facebook/create-react-app
-
 # Environment setting
 
-The dependecies of client and server are listed in package.json files in respective folders. Install packages by node or yarn.
+```sh
+npm install --dependencies
+```
+Please create .env in the server folder, then declare and initialize two variables: "DB_CLUSTER" and "MYSECRET"
 
-Please create .env in the server folder, then declare and initialize two variables, "DB_CLUSTER" and "MYSECRET", which are needed when connecting to the MongoDB database and validating JWT token signature.
-
-# Main functions
+# Description
 
 Feel free to explore this system and all the buttons.
 
